@@ -1,0 +1,16 @@
+config_version=5
+
+[application]
+
+config/name="Magus Novarum"
+run/main_scene="uid://c1h2sjy1yl7a2"
+config/features=PackedStringArray("4.6", "Forward Plus")
+config/icon="res://icon.svg"
+
+[physics]
+
+3d/physics_engine="Jolt Physics"
+
+[rendering]
+
+rendering_device/driver.windows="d3d12"
