@@ -2,9 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://bu6fn7es88xwe" path="res://scenes/enemy.tscn" id="1_uwrxv"]
 [ext_resource type="Script" uid="uid://ba0wroqalghq6" path="res://scripts/game.gd" id="1_yqjtg"]
-
-[sub_resource type="ButtonGroup" id="ButtonGroup_yqjtg"]
-resource_local_to_scene = false
+[ext_resource type="ButtonGroup" uid="uid://x4ke67pxq33p" path="res://scenes/forms.tres" id="3_lnu2h"]
 
 [node name="Game" type="Control" unique_id=328955116]
 layout_mode = 3
@@ -20,7 +18,7 @@ script = ExtResource("1_yqjtg")
 [node name="TurnTimer" type="Timer" parent="." unique_id=149913343]
 one_shot = true
 
-[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=1592656124]
+[node name="Hud" type="VBoxContainer" parent="." unique_id=1592656124]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -28,19 +26,14 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="TimerBar" type="ProgressBar" parent="VBoxContainer" unique_id=1770908931]
+[node name="TimerBar" type="ProgressBar" parent="Hud" unique_id=1770908931]
 layout_mode = 2
 max_value = 1.0
 show_percentage = false
 
-[node name="HealthBar" type="ProgressBar" parent="VBoxContainer" unique_id=793078432]
+[node name="HealthBar" type="ProgressBar" parent="Hud" unique_id=793078432]
 layout_mode = 2
 value = 100.0
-
-[node name="MarginContainer" type="MarginContainer" parent="." unique_id=1199048270]
-layout_mode = 0
-offset_right = 40.0
-offset_bottom = 40.0
 
 [node name="Enemy" parent="." unique_id=1119454396 instance=ExtResource("1_uwrxv")]
 layout_mode = 1
@@ -50,9 +43,9 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -64.0
-offset_top = -64.0
+offset_top = -70.0
 offset_right = 64.0
-offset_bottom = 64.0
+offset_bottom = 70.0
 grow_horizontal = 2
 grow_vertical = 2
 
@@ -72,7 +65,7 @@ size_flags_vertical = 4
 text = "Cast
 "
 
-[node name="HBoxContainer" type="HBoxContainer" parent="." unique_id=660382318]
+[node name="SpellChain" type="HBoxContainer" parent="." unique_id=660382318]
 layout_mode = 1
 anchors_preset = 12
 anchor_top = 1.0
@@ -82,30 +75,54 @@ offset_top = -31.0
 grow_horizontal = 2
 grow_vertical = 0
 
-[node name="Projectile" type="CheckBox" parent="HBoxContainer" unique_id=124736937]
+[node name="Self" type="Button" parent="SpellChain" unique_id=1985305568]
 layout_mode = 2
-button_pressed = true
-button_group = SubResource("ButtonGroup_yqjtg")
-text = "Projectile"
-
-[node name="Self" type="CheckBox" parent="HBoxContainer" unique_id=808430464]
-layout_mode = 2
-button_group = SubResource("ButtonGroup_yqjtg")
+toggle_mode = true
+button_group = ExtResource("3_lnu2h")
 text = "Self"
 
-[node name="Beam" type="CheckBox" parent="HBoxContainer" unique_id=1993392435]
+[node name="Bolt" type="Button" parent="SpellChain" unique_id=507423397]
 layout_mode = 2
-button_group = SubResource("ButtonGroup_yqjtg")
-text = "Beam
-"
+toggle_mode = true
+button_group = ExtResource("3_lnu2h")
+text = "Bolt"
 
-[node name="Harm" type="CheckBox" parent="HBoxContainer" unique_id=758464174]
+[node name="Beam" type="Button" parent="SpellChain" unique_id=1017852805]
 layout_mode = 2
-text = "Harm"
+toggle_mode = true
+button_group = ExtResource("3_lnu2h")
+text = "Beam"
 
-[node name="Break" type="CheckBox" parent="HBoxContainer" unique_id=596807090]
+[node name="Missile" type="Button" parent="SpellChain" unique_id=760330235]
 layout_mode = 2
-text = "Break
-"
+toggle_mode = true
+button_group = ExtResource("3_lnu2h")
+text = "Missile"
+
+[node name="Volley" type="Button" parent="SpellChain" unique_id=1339693865]
+layout_mode = 2
+toggle_mode = true
+button_group = ExtResource("3_lnu2h")
+text = "Volley"
+
+[node name="Wound" type="Button" parent="SpellChain" unique_id=1855331636]
+layout_mode = 2
+toggle_mode = true
+text = "Wound"
+
+[node name="Shatter" type="Button" parent="SpellChain" unique_id=591403737]
+layout_mode = 2
+toggle_mode = true
+text = "Shatter"
+
+[node name="Cleanse" type="Button" parent="SpellChain" unique_id=1664198463]
+layout_mode = 2
+toggle_mode = true
+text = "Cleanse"
+
+[node name="Recover" type="Button" parent="SpellChain" unique_id=1138331974]
+layout_mode = 2
+toggle_mode = true
+text = "Recover"
 
 [connection signal="pressed" from="Cast" to="." method="_on_attack_pressed"]
