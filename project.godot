@@ -10,7 +10,7 @@ config_version=5
 
 [application]
 
-config/name="Magus Novarum"
+config/name="Magus Revarum"
 run/main_scene="uid://c1h2sjy1yl7a2"
 config/features=PackedStringArray("4.6", "Forward Plus")
 config/icon="res://icon.svg"
