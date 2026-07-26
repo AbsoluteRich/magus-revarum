@@ -2,7 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://bu6fn7es88xwe" path="res://scenes/enemy.tscn" id="1_uwrxv"]
 [ext_resource type="Script" uid="uid://ba0wroqalghq6" path="res://scripts/game.gd" id="1_yqjtg"]
-[ext_resource type="ButtonGroup" uid="uid://x4ke67pxq33p" path="res://scenes/forms.tres" id="3_lnu2h"]
+[ext_resource type="PackedScene" uid="uid://dqvnwt02cbhmi" path="res://scenes/spellbook.tscn" id="3_lnu2h"]
 
 [node name="Game" type="Control" unique_id=328955116]
 layout_mode = 3
@@ -15,7 +15,7 @@ size_flags_horizontal = 3
 size_flags_vertical = 3
 script = ExtResource("1_yqjtg")
 
-[node name="TurnTimer" type="Timer" parent="." unique_id=149913343]
+[node name="Timer" type="Timer" parent="." unique_id=149913343]
 one_shot = true
 
 [node name="Hud" type="VBoxContainer" parent="." unique_id=1592656124]
@@ -26,12 +26,12 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="TimerBar" type="ProgressBar" parent="Hud" unique_id=1770908931]
+[node name="BarTimer" type="ProgressBar" parent="Hud" unique_id=1770908931]
 layout_mode = 2
 max_value = 1.0
 show_percentage = false
 
-[node name="HealthBar" type="ProgressBar" parent="Hud" unique_id=793078432]
+[node name="BarHealth" type="ProgressBar" parent="Hud" unique_id=793078432]
 layout_mode = 2
 value = 100.0
 
@@ -49,7 +49,22 @@ offset_bottom = 70.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Cast" type="Button" parent="." unique_id=547977216]
+[node name="Spellbook" parent="." unique_id=522387638 instance=ExtResource("3_lnu2h")]
+layout_mode = 1
+
+[node name="BtnSpellbook" type="Button" parent="." unique_id=2105011319]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -31.0
+offset_right = 84.0
+grow_vertical = 0
+size_flags_horizontal = 8
+size_flags_vertical = 4
+text = "Spellbook"
+
+[node name="BtnCast" type="Button" parent="." unique_id=547977216]
 layout_mode = 1
 anchors_preset = 3
 anchor_left = 1.0
@@ -65,64 +80,5 @@ size_flags_vertical = 4
 text = "Cast
 "
 
-[node name="SpellChain" type="HBoxContainer" parent="." unique_id=660382318]
-layout_mode = 1
-anchors_preset = 12
-anchor_top = 1.0
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_top = -31.0
-grow_horizontal = 2
-grow_vertical = 0
-
-[node name="Self" type="Button" parent="SpellChain" unique_id=1985305568]
-layout_mode = 2
-toggle_mode = true
-button_group = ExtResource("3_lnu2h")
-text = "Self"
-
-[node name="Bolt" type="Button" parent="SpellChain" unique_id=507423397]
-layout_mode = 2
-toggle_mode = true
-button_group = ExtResource("3_lnu2h")
-text = "Bolt"
-
-[node name="Beam" type="Button" parent="SpellChain" unique_id=1017852805]
-layout_mode = 2
-toggle_mode = true
-button_group = ExtResource("3_lnu2h")
-text = "Beam"
-
-[node name="Missile" type="Button" parent="SpellChain" unique_id=760330235]
-layout_mode = 2
-toggle_mode = true
-button_group = ExtResource("3_lnu2h")
-text = "Missile"
-
-[node name="Volley" type="Button" parent="SpellChain" unique_id=1339693865]
-layout_mode = 2
-toggle_mode = true
-button_group = ExtResource("3_lnu2h")
-text = "Volley"
-
-[node name="Wound" type="Button" parent="SpellChain" unique_id=1855331636]
-layout_mode = 2
-toggle_mode = true
-text = "Wound"
-
-[node name="Shatter" type="Button" parent="SpellChain" unique_id=591403737]
-layout_mode = 2
-toggle_mode = true
-text = "Shatter"
-
-[node name="Cleanse" type="Button" parent="SpellChain" unique_id=1664198463]
-layout_mode = 2
-toggle_mode = true
-text = "Cleanse"
-
-[node name="Recover" type="Button" parent="SpellChain" unique_id=1138331974]
-layout_mode = 2
-toggle_mode = true
-text = "Recover"
-
-[connection signal="pressed" from="Cast" to="." method="_on_attack_pressed"]
+[connection signal="pressed" from="BtnSpellbook" to="." method="_on_spellbook_opened"]
+[connection signal="pressed" from="BtnCast" to="." method="_on_spell_cast"]

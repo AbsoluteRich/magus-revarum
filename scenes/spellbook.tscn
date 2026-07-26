@@ -1,0 +1,79 @@
+[gd_scene format=3 uid="uid://dqvnwt02cbhmi"]
+
+[ext_resource type="ButtonGroup" uid="uid://x4ke67pxq33p" path="res://scenes/forms.tres" id="1_qbvpl"]
+
+[node name="Spellbook" type="MarginContainer" unique_id=522387638]
+z_index = -1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 50
+theme_override_constants/margin_top = 50
+theme_override_constants/margin_right = 50
+theme_override_constants/margin_bottom = 50
+
+[node name="Panel" type="Panel" parent="." unique_id=1269152436]
+layout_mode = 2
+
+[node name="Runes" type="HBoxContainer" parent="Panel" unique_id=1491595067]
+layout_mode = 1
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_top = -15.5
+offset_bottom = 15.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Self" type="Button" parent="Panel/Runes" unique_id=272606301]
+layout_mode = 2
+toggle_mode = true
+button_group = ExtResource("1_qbvpl")
+text = "Self"
+
+[node name="Bolt" type="Button" parent="Panel/Runes" unique_id=279414329]
+layout_mode = 2
+toggle_mode = true
+button_group = ExtResource("1_qbvpl")
+text = "Bolt"
+
+[node name="Beam" type="Button" parent="Panel/Runes" unique_id=2091509910]
+layout_mode = 2
+toggle_mode = true
+button_group = ExtResource("1_qbvpl")
+text = "Beam"
+
+[node name="Missile" type="Button" parent="Panel/Runes" unique_id=11197105]
+layout_mode = 2
+toggle_mode = true
+button_group = ExtResource("1_qbvpl")
+text = "Missile"
+
+[node name="Volley" type="Button" parent="Panel/Runes" unique_id=841239207]
+layout_mode = 2
+toggle_mode = true
+button_group = ExtResource("1_qbvpl")
+text = "Volley"
+
+[node name="Wound" type="Button" parent="Panel/Runes" unique_id=2145938738]
+layout_mode = 2
+toggle_mode = true
+text = "Wound"
+
+[node name="Shatter" type="Button" parent="Panel/Runes" unique_id=1544641374]
+layout_mode = 2
+toggle_mode = true
+text = "Shatter"
+
+[node name="Cleanse" type="Button" parent="Panel/Runes" unique_id=1123773695]
+layout_mode = 2
+toggle_mode = true
+text = "Cleanse"
+
+[node name="Recover" type="Button" parent="Panel/Runes" unique_id=1407528881]
+layout_mode = 2
+toggle_mode = true
+text = "Recover"
