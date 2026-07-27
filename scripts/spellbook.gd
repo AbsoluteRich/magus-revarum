@@ -27,10 +27,6 @@ func _ready() -> void:
 # | Signal callbacks |
 # *------------------*
 func _handle_rune(rune: Button) -> void:
-	if len(spell_chain) + 1 > rune_capacity:
-		_display_dialog("Spell is at capacity! Remove a Rune to make space.", rune)
-		return
-
 	if rune.button_group == form:
 		spell_chain[0] = rune.text
 	else:
@@ -41,7 +37,10 @@ func _handle_rune(rune: Button) -> void:
 		if rune.text in spell_chain:
 			spell_chain.remove_at(spell_chain.find(rune.text))
 		else:
-			spell_chain.append(rune.text)
+			if len(spell_chain) + 1 > rune_capacity:
+				_display_dialog("Spell is at capacity! Remove a Rune to make space.", rune)
+			else:
+				spell_chain.append(rune.text)
 
 	%SpellChain.text = "Spell Chain: " + " + ".join(spell_chain)
 	%RuneCapacity.text = str(len(spell_chain)) + "/" + str(rune_capacity)
