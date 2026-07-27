@@ -1,0 +1,27 @@
+[gd_scene format=3 uid="uid://cpsnv24fvkk7e"]
+
+[ext_resource type="Script" uid="uid://d0tprqew6ah20" path="res://scripts/health_manager.gd" id="1_1bvlm"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_lnu2h"]
+bg_color = Color(0.7607843, 0.19215687, 0.27058825, 1)
+
+[node name="BarHealth" type="ProgressBar" unique_id=1247579725]
+custom_minimum_size = Vector2(0, 27)
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_styles/fill = SubResource("StyleBoxFlat_lnu2h")
+max_value = 20.0
+value = 20.0
+show_percentage = false
+script = ExtResource("1_1bvlm")
+
+[node name="LblHealth" type="Label" parent="." unique_id=1788770653]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "0/0"
+horizontal_alignment = 1
+vertical_alignment = 1

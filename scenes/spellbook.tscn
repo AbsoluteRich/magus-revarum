@@ -1,9 +1,9 @@
 [gd_scene format=3 uid="uid://dqvnwt02cbhmi"]
 
+[ext_resource type="Script" uid="uid://cp1kbufxsjyvq" path="res://scripts/spellbook.gd" id="1_lfox7"]
 [ext_resource type="ButtonGroup" uid="uid://x4ke67pxq33p" path="res://scenes/forms.tres" id="1_qbvpl"]
 
 [node name="Spellbook" type="MarginContainer" unique_id=522387638]
-z_index = -1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -13,67 +13,165 @@ theme_override_constants/margin_left = 50
 theme_override_constants/margin_top = 50
 theme_override_constants/margin_right = 50
 theme_override_constants/margin_bottom = 50
+script = ExtResource("1_lfox7")
+
+[node name="CoreMessage" type="AcceptDialog" parent="." unique_id=425574748]
+unique_name_in_owner = true
+oversampling_override = 1.0
+title = "Grimoire Revarum"
+initial_position = 1
+size = Vector2i(406, 100)
+dialog_text = "Placeholder!"
 
 [node name="Panel" type="Panel" parent="." unique_id=1269152436]
 layout_mode = 2
 
-[node name="Runes" type="HBoxContainer" parent="Panel" unique_id=1491595067]
+[node name="MarginContainer" type="MarginContainer" parent="Panel" unique_id=1431143261]
 layout_mode = 1
-anchors_preset = 14
-anchor_top = 0.5
+anchors_preset = 15
 anchor_right = 1.0
-anchor_bottom = 0.5
-offset_top = -15.5
-offset_bottom = 15.5
+anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 20
 
-[node name="Self" type="Button" parent="Panel/Runes" unique_id=272606301]
+[node name="VBoxContainer" type="VBoxContainer" parent="Panel/MarginContainer" unique_id=942534226]
+layout_mode = 2
+theme_override_constants/separation = 8
+
+[node name="Title" type="Label" parent="Panel/MarginContainer/VBoxContainer" unique_id=1919157643]
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+text = "Grimoire Revarum"
+
+[node name="TabContainer" type="TabContainer" parent="Panel/MarginContainer/VBoxContainer" unique_id=1944214814]
+layout_mode = 2
+size_flags_vertical = 3
+current_tab = 0
+tab_0/title = "Form Runes"
+tab_1/title = "Action Runes"
+tab_2/title = "Modifier Runes"
+tab_3/title = "Enchanted Pages"
+
+[node name="Forms" type="CenterContainer" parent="Panel/MarginContainer/VBoxContainer/TabContainer" unique_id=1264070731]
+layout_mode = 2
+metadata/_tab_index = 0
+metadata/_tab_name = "Form Runes"
+
+[node name="FormRunes" type="HBoxContainer" parent="Panel/MarginContainer/VBoxContainer/TabContainer/Forms" unique_id=1491595067]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 8
+
+[node name="Self" type="Button" parent="Panel/MarginContainer/VBoxContainer/TabContainer/Forms/FormRunes" unique_id=272606301]
 layout_mode = 2
 toggle_mode = true
 button_group = ExtResource("1_qbvpl")
 text = "Self"
 
-[node name="Bolt" type="Button" parent="Panel/Runes" unique_id=279414329]
+[node name="Bolt" type="Button" parent="Panel/MarginContainer/VBoxContainer/TabContainer/Forms/FormRunes" unique_id=279414329]
 layout_mode = 2
 toggle_mode = true
 button_group = ExtResource("1_qbvpl")
 text = "Bolt"
 
-[node name="Beam" type="Button" parent="Panel/Runes" unique_id=2091509910]
+[node name="Beam" type="Button" parent="Panel/MarginContainer/VBoxContainer/TabContainer/Forms/FormRunes" unique_id=2091509910]
 layout_mode = 2
 toggle_mode = true
 button_group = ExtResource("1_qbvpl")
 text = "Beam"
 
-[node name="Missile" type="Button" parent="Panel/Runes" unique_id=11197105]
+[node name="Missile" type="Button" parent="Panel/MarginContainer/VBoxContainer/TabContainer/Forms/FormRunes" unique_id=11197105]
 layout_mode = 2
 toggle_mode = true
 button_group = ExtResource("1_qbvpl")
 text = "Missile"
 
-[node name="Volley" type="Button" parent="Panel/Runes" unique_id=841239207]
+[node name="Volley" type="Button" parent="Panel/MarginContainer/VBoxContainer/TabContainer/Forms/FormRunes" unique_id=841239207]
 layout_mode = 2
 toggle_mode = true
 button_group = ExtResource("1_qbvpl")
 text = "Volley"
 
-[node name="Wound" type="Button" parent="Panel/Runes" unique_id=2145938738]
+[node name="Actions" type="CenterContainer" parent="Panel/MarginContainer/VBoxContainer/TabContainer" unique_id=1674906469]
+visible = false
+layout_mode = 2
+metadata/_tab_index = 1
+metadata/_tab_name = "Action Runes"
+
+[node name="ActionRunes" type="HBoxContainer" parent="Panel/MarginContainer/VBoxContainer/TabContainer/Actions" unique_id=1479375421]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 8
+
+[node name="Wound" type="Button" parent="Panel/MarginContainer/VBoxContainer/TabContainer/Actions/ActionRunes" unique_id=1625120634]
 layout_mode = 2
 toggle_mode = true
 text = "Wound"
 
-[node name="Shatter" type="Button" parent="Panel/Runes" unique_id=1544641374]
+[node name="Shatter" type="Button" parent="Panel/MarginContainer/VBoxContainer/TabContainer/Actions/ActionRunes" unique_id=1580160740]
 layout_mode = 2
 toggle_mode = true
 text = "Shatter"
 
-[node name="Cleanse" type="Button" parent="Panel/Runes" unique_id=1123773695]
+[node name="Cleanse" type="Button" parent="Panel/MarginContainer/VBoxContainer/TabContainer/Actions/ActionRunes" unique_id=2094157439]
 layout_mode = 2
 toggle_mode = true
 text = "Cleanse"
 
-[node name="Recover" type="Button" parent="Panel/Runes" unique_id=1407528881]
+[node name="Recover" type="Button" parent="Panel/MarginContainer/VBoxContainer/TabContainer/Actions/ActionRunes" unique_id=1303207920]
 layout_mode = 2
 toggle_mode = true
 text = "Recover"
+
+[node name="Modifiers" type="CenterContainer" parent="Panel/MarginContainer/VBoxContainer/TabContainer" unique_id=1658542124]
+visible = false
+layout_mode = 2
+metadata/_tab_index = 2
+metadata/_tab_name = "Modifier Runes"
+
+[node name="ModifierRunes" type="HBoxContainer" parent="Panel/MarginContainer/VBoxContainer/TabContainer/Modifiers" unique_id=2122005322]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 8
+
+[node name="Boosted" type="Button" parent="Panel/MarginContainer/VBoxContainer/TabContainer/Modifiers/ModifierRunes" unique_id=2084386929]
+layout_mode = 2
+toggle_mode = true
+text = "Boosted"
+
+[node name="Lethal" type="Button" parent="Panel/MarginContainer/VBoxContainer/TabContainer/Modifiers/ModifierRunes" unique_id=201526721]
+layout_mode = 2
+toggle_mode = true
+text = "Lethal"
+
+[node name="Pages" type="CenterContainer" parent="Panel/MarginContainer/VBoxContainer/TabContainer" unique_id=413500232]
+visible = false
+layout_mode = 2
+metadata/_tab_index = 3
+metadata/_tab_name = "Enchanted Pages"
+
+[node name="Label" type="Label" parent="Panel/MarginContainer/VBoxContainer/TabContainer/Pages" unique_id=704435237]
+layout_mode = 2
+text = "WORK IN PROGRESS"
+
+[node name="VBoxContainer" type="HBoxContainer" parent="Panel/MarginContainer/VBoxContainer" unique_id=1800969515]
+layout_mode = 2
+
+[node name="SpellChain" type="Label" parent="Panel/MarginContainer/VBoxContainer/VBoxContainer" unique_id=1431071507]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 2
+text = "Spell Chain:"
+
+[node name="RuneCapacity" type="Label" parent="Panel/MarginContainer/VBoxContainer/VBoxContainer" unique_id=487649349]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 10
+text = "0/0"

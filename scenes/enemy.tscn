@@ -1,18 +1,26 @@
 [gd_scene format=3 uid="uid://bu6fn7es88xwe"]
 
+[ext_resource type="PackedScene" uid="uid://cpsnv24fvkk7e" path="res://scenes/health_bar.tscn" id="1_4ra3w"]
 [ext_resource type="Texture2D" uid="uid://cbthbnc16pwfl" path="res://icon.svg" id="1_7p1mj"]
-[ext_resource type="Script" uid="uid://d0tprqew6ah20" path="res://scripts/enemy.gd" id="1_md0e3"]
 
-[node name="VBoxContainer" type="VBoxContainer" unique_id=2088278980]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5uy6h"]
+bg_color = Color(0.9098039, 0.2901961, 0.37254903, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
+[node name="Enemy" type="VBoxContainer" unique_id=2088278980]
 offset_right = 128.0
 offset_bottom = 136.0
 theme_override_constants/separation = 8
-script = ExtResource("1_md0e3")
 
-[node name="HealthBar" type="ProgressBar" parent="." unique_id=187714081]
+[node name="BarHealth" parent="." unique_id=1247579725 instance=ExtResource("1_4ra3w")]
 layout_mode = 2
-value = 100.0
-show_percentage = false
+size_flags_horizontal = 1
+theme_override_styles/fill = SubResource("StyleBoxFlat_5uy6h")
+rounded = true
+max_health = 50
 
 [node name="Enemy" type="TextureRect" parent="." unique_id=43706820]
 layout_mode = 2

@@ -2,7 +2,11 @@
 
 [ext_resource type="PackedScene" uid="uid://bu6fn7es88xwe" path="res://scenes/enemy.tscn" id="1_uwrxv"]
 [ext_resource type="Script" uid="uid://ba0wroqalghq6" path="res://scripts/game.gd" id="1_yqjtg"]
+[ext_resource type="PackedScene" uid="uid://cpsnv24fvkk7e" path="res://scenes/health_bar.tscn" id="2_lbhrr"]
 [ext_resource type="PackedScene" uid="uid://dqvnwt02cbhmi" path="res://scenes/spellbook.tscn" id="3_lnu2h"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_lbhrr"]
+bg_color = Color(0.17254902, 0.41568628, 0.627451, 1)
 
 [node name="Game" type="Control" unique_id=328955116]
 layout_mode = 3
@@ -31,11 +35,17 @@ layout_mode = 2
 max_value = 1.0
 show_percentage = false
 
-[node name="BarHealth" type="ProgressBar" parent="Hud" unique_id=793078432]
+[node name="BarHealth" parent="Hud" unique_id=1247579725 instance=ExtResource("2_lbhrr")]
 layout_mode = 2
+size_flags_horizontal = 1
+max_health = 20
+
+[node name="BarMana" type="ProgressBar" parent="Hud" unique_id=1413197550]
+layout_mode = 2
+theme_override_styles/fill = SubResource("StyleBoxFlat_lbhrr")
 value = 100.0
 
-[node name="Enemy" parent="." unique_id=1119454396 instance=ExtResource("1_uwrxv")]
+[node name="Enemy" parent="." unique_id=2088278980 instance=ExtResource("1_uwrxv")]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -43,13 +53,14 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -64.0
-offset_top = -70.0
+offset_top = -81.5
 offset_right = 64.0
-offset_bottom = 70.0
+offset_bottom = 81.5
 grow_horizontal = 2
 grow_vertical = 2
 
 [node name="Spellbook" parent="." unique_id=522387638 instance=ExtResource("3_lnu2h")]
+visible = false
 layout_mode = 1
 
 [node name="BtnSpellbook" type="Button" parent="." unique_id=2105011319]
@@ -65,6 +76,7 @@ size_flags_vertical = 4
 text = "Spellbook"
 
 [node name="BtnCast" type="Button" parent="." unique_id=547977216]
+visible = false
 layout_mode = 1
 anchors_preset = 3
 anchor_left = 1.0
