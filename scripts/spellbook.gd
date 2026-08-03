@@ -1,8 +1,7 @@
 extends MarginContainer
 
 @onready var form: ButtonGroup = preload("res://scenes/forms.tres")
-# Nested type definitions aren't a feature yet, so I actually can't statically type this
-@onready var all_runes := []
+@onready var all_runes: Array[Node] = []
 
 @export var rune_capacity: int = 6
 
@@ -60,20 +59,22 @@ func _reset() -> void:
 		rune.button_pressed = false
 
 	spell_chain = [""]
+	%SpellChain.text = "Spell Chain: "
 	%RuneCapacity.text = "0/" + str(rune_capacity)
 
 
 # *------------*
 # | Game logic |
 # *------------*
-func resolve(player_health: int, enemy_health: int) -> Array[int]:
-	var success: int = 1
-	var target_self = false
+func resolve() -> Array[int]:
+	var result: Array[int] = [1, 0, 0]
+	var target_self: bool = false
+	var previous_rune: String = ""
 
 	if spell_chain[0] == "":
-		success = 0
 		_reset()
-		return [success, player_health, enemy_health]
+		result[0] = 0
+		return result
 
 	for rune in spell_chain:
 		match rune:
@@ -81,9 +82,16 @@ func resolve(player_health: int, enemy_health: int) -> Array[int]:
 				target_self = true
 			"Wound":
 				if target_self:
-					player_health -= Global.rng.randi_range(1, 5)
+					result[1] -= Global.rng.randi_range(10, 20)
 				else:
-					enemy_health -= Global.rng.randi_range(1, 5)
+					result[2] -= Global.rng.randi_range(10, 20)
+			"Boost":
+				if previous_rune == "Wound":
+					# Double the damage of the attack
+					result[2] -= Global.rng.randi_range(10, 20)
+
+		previous_rune = rune
 
 	_reset()
-	return [success, player_health, enemy_health]
+	print(result)
+	return result

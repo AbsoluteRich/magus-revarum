@@ -81,18 +81,21 @@ text = "Bolt"
 
 [node name="Beam" type="Button" parent="Panel/MarginContainer/VBoxContainer/TabContainer/Forms/FormRunes" unique_id=2091509910]
 layout_mode = 2
+disabled = true
 toggle_mode = true
 button_group = ExtResource("1_qbvpl")
 text = "Beam"
 
 [node name="Missile" type="Button" parent="Panel/MarginContainer/VBoxContainer/TabContainer/Forms/FormRunes" unique_id=11197105]
 layout_mode = 2
+disabled = true
 toggle_mode = true
 button_group = ExtResource("1_qbvpl")
 text = "Missile"
 
 [node name="Volley" type="Button" parent="Panel/MarginContainer/VBoxContainer/TabContainer/Forms/FormRunes" unique_id=841239207]
 layout_mode = 2
+disabled = true
 toggle_mode = true
 button_group = ExtResource("1_qbvpl")
 text = "Volley"
@@ -111,22 +114,21 @@ size_flags_vertical = 8
 
 [node name="Wound" type="Button" parent="Panel/MarginContainer/VBoxContainer/TabContainer/Actions/ActionRunes" unique_id=1625120634]
 layout_mode = 2
-toggle_mode = true
 text = "Wound"
 
 [node name="Shatter" type="Button" parent="Panel/MarginContainer/VBoxContainer/TabContainer/Actions/ActionRunes" unique_id=1580160740]
 layout_mode = 2
-toggle_mode = true
+disabled = true
 text = "Shatter"
 
 [node name="Cleanse" type="Button" parent="Panel/MarginContainer/VBoxContainer/TabContainer/Actions/ActionRunes" unique_id=2094157439]
 layout_mode = 2
-toggle_mode = true
+disabled = true
 text = "Cleanse"
 
 [node name="Recover" type="Button" parent="Panel/MarginContainer/VBoxContainer/TabContainer/Actions/ActionRunes" unique_id=1303207920]
 layout_mode = 2
-toggle_mode = true
+disabled = true
 text = "Recover"
 
 [node name="Modifiers" type="CenterContainer" parent="Panel/MarginContainer/VBoxContainer/TabContainer" unique_id=1658542124]
@@ -141,14 +143,13 @@ layout_mode = 2
 size_flags_horizontal = 0
 size_flags_vertical = 8
 
-[node name="Boosted" type="Button" parent="Panel/MarginContainer/VBoxContainer/TabContainer/Modifiers/ModifierRunes" unique_id=2084386929]
+[node name="Boost" type="Button" parent="Panel/MarginContainer/VBoxContainer/TabContainer/Modifiers/ModifierRunes" unique_id=2084386929]
 layout_mode = 2
-toggle_mode = true
-text = "Boosted"
+text = "Boost"
 
 [node name="Lethal" type="Button" parent="Panel/MarginContainer/VBoxContainer/TabContainer/Modifiers/ModifierRunes" unique_id=201526721]
 layout_mode = 2
-toggle_mode = true
+disabled = true
 text = "Lethal"
 
 [node name="Pages" type="CenterContainer" parent="Panel/MarginContainer/VBoxContainer/TabContainer" unique_id=413500232]
@@ -168,7 +169,19 @@ layout_mode = 2
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 2
-text = "Spell Chain:"
+text = "PLACEHOLDER"
+
+[node name="Button" type="Button" parent="Panel/MarginContainer/VBoxContainer/VBoxContainer" unique_id=525247661]
+visible = false
+layout_mode = 2
+size_flags_horizontal = 0
+text = "AAA"
+
+[node name="Button2" type="Button" parent="Panel/MarginContainer/VBoxContainer/VBoxContainer" unique_id=1378882054]
+visible = false
+layout_mode = 2
+size_flags_horizontal = 0
+text = "AAA"
 
 [node name="RuneCapacity" type="Label" parent="Panel/MarginContainer/VBoxContainer/VBoxContainer" unique_id=487649349]
 unique_name_in_owner = true

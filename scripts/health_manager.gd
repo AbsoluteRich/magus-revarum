@@ -1,5 +1,7 @@
 extends ProgressBar
 
+# class_name HealthManager
+
 @onready var bar: ProgressBar = self
 @onready var label: Label = self.get_node("LblHealth")
 
